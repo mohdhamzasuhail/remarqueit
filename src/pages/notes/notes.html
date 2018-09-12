@@ -1,0 +1,55 @@
+<ion-header no-border>
+
+  <ion-toolbar>
+  	<button class="home-menu" ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Note</ion-title>
+    <ion-buttons end >
+      <button ion-button icon-only (tap)="goToAccount()"><ion-icon name="md-contact"></ion-icon></button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+	<ion-fab bottom right>
+	  	<button ion-fab color="dark"><ion-icon name="md-add"></ion-icon></button>
+	  	<ion-fab-list side="top">
+	    	<button ion-fab (click)="goToAddNotes()" ><ion-icon name="md-create"></ion-icon></button>
+	    	<button ion-fab><ion-icon name="md-list"></ion-icon></button>
+	 	    <button ion-fab><ion-icon name="md-list-box"></ion-icon></button>
+	  	</ion-fab-list>
+	</ion-fab>
+
+	<div *ngIf="userInfo.status == 'true'">
+		
+		<div *ngFor="let note of notes | async">
+			
+			<ion-card *ngIf="note.note != ''" swipeAll (swipeleft)="swipeLeft()" (swiperight)="swipeRight()">
+				<ion-list>
+				    <ion-item style="background-color: transparent;" (click)="editNotes(note.key,note.noteTitle,note.note,note.dateCreated)" (press)="noteOptions(note.key)">
+				    	<p>{{note.dateCreated}}</p><hr>
+				    	<h2>{{note.noteTitle}}</h2>
+						<p>{{note.note}}</p>
+				    </ion-item>
+				</ion-list>
+			</ion-card>
+
+		</div>
+
+	</div>
+
+	<div *ngIf="userInfo.status == 'false'">
+		<ion-card>
+			<ion-row>
+				<ion-col col-12 style="text-align: center;">
+					<h1><ion-icon color="custom" name="md-alert"></ion-icon></h1>
+					<h2>Please <b style="color: #F44336;" (tap)="goToAccount()">login</b> to see your notes.</h2>
+				</ion-col>
+			</ion-row>
+		</ion-card>
+	</div>
+
+</ion-content>

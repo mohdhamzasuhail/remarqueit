@@ -1,0 +1,20 @@
+page-account {
+
+	h2 {
+		color: #1a1a1a !important;
+	}
+	input {
+		height: 35px;
+		width: 100%;
+		padding-left: 10px;
+		border-radius: 20px;
+		border: 1px solid #EEE;
+		box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+		transition: 1s;
+	}
+
+	input:focus {
+		border-color: #F44336;
+		transition: 1s;
+	}
+}

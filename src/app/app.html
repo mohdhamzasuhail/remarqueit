@@ -1,0 +1,67 @@
+<ion-menu type="overlay" [content]="content" id="menu-bar">
+    <ion-header id="menu-header">
+        <h2>
+            <i>RemarqueIt</i>
+        </h2>
+    </ion-header>
+    <ion-content padding style="background-color: #eee;">
+        <ion-list>
+            
+            <ion-row>
+                <ion-col col-2>
+                    <h4><ion-icon name="md-create"></ion-icon></h4>
+                </ion-col>
+                <ion-col col-10>
+                    <h4>Notes</h4>                    
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col col-2>
+                    <h4><ion-icon name="md-list-box"></ion-icon></h4>
+                </ion-col>
+                <ion-col col-10>
+                    <h4>List</h4>                    
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col col-2>
+                    <h4><ion-icon name="md-archive"></ion-icon></h4>
+                </ion-col>
+                <ion-col col-10>
+                    <h4>Archive</h4>                    
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col col-2>
+                    <h4><ion-icon name="md-star"></ion-icon></h4>
+                </ion-col>
+                <ion-col col-10>
+                    <h4>Starred</h4>                    
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col col-2>
+                    <h4><ion-icon name="md-help-circle"></ion-icon></h4>
+                </ion-col>
+                <ion-col col-10>
+                    <h4>Help</h4>                    
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col col-2>
+                    <h4><ion-icon name="md-paper"></ion-icon></h4>
+                </ion-col>
+                <ion-col col-10>
+                    <h4>Feedback</h4>                    
+                </ion-col>
+            </ion-row>
+
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #content></ion-nav>

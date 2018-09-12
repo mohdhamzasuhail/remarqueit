@@ -1,0 +1,61 @@
+$font-path: "../assets/fonts";
+$app-direction: ltr;
+
+@import "ionic.globals";
+
+$colors: (
+  custom    : #ef473a,
+  primary   : #488aff,
+  secondary : #32db64,
+  danger    : #f53d3d,
+  light     : #ffffff,
+  dark      : #1a1a1a
+);
+
+$toolbar-background: #1a1a1a;
+$tabs-background: rgba(0, 0, 0, 0);
+$toolbar-md-title-font-size: 2.5rem;
+$toolbar-ios-title-font-size: 2.5rem;
+$toolbar-md-title-text-color: #fff;
+$toolbar-ios-title-text-color: #fff;
+$tabs-md-tab-color-active: #1a1a1a;
+$tabs-ios-tab-color-active: #1a1a1a;
+$tabs-ios-tab-color-inactive: #fff;
+$tabs-md-tab-color-inactive: #fff;
+
+// Action Sheets
+$action-sheet-ios-background: #F44336;
+$action-sheet-md-background: #F44336;
+
+$action-sheet-ios-title-color: #fff;
+$action-sheet-md-title-color: #fff;
+
+$action-sheet-ios-button-text-color: #fff;
+$action-sheet-md-button-text-color: #fff;
+
+$radio-ios-color-on: #F44336;
+$radio-md-color-on: #F44336;
+  
+ion-title {
+  font-family: 'Oswald', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', sans-serif !important;  
+}
+
+ion-content {
+	background: #cb2d3e;
+	background: -webkit-linear-gradient(45deg, #ef473a, #cb2d3e);
+	background: linear-gradient(45deg, #ef473a, #cb2d3e);
+}
+
+ion-card {
+	border-radius: 10px !important;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+}
+
+@import "ionic.theme.default";
+@import "ionic.ionicons";
+@import "roboto";
+@import "noto-sans";

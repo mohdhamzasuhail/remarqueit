@@ -1,0 +1,25 @@
+page-edit-notes {
+	ion-content {
+		background: #cb2d3e;
+		background: -webkit-linear-gradient(45deg, #ef473a, #cb2d3e);
+		background: linear-gradient(45deg, #ef473a, #cb2d3e);
+	}
+	input {
+		border: none;
+		width: 100%;
+	}
+
+	input:focus {
+		border: none;
+	}
+
+	textarea {
+		height: 100vh;
+		width: 100%;
+		border: none;
+	}
+
+	textarea:focus {
+		border: none;
+	}
+}

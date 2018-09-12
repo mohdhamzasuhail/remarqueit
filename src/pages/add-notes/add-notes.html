@@ -1,0 +1,31 @@
+<ion-header no-border>
+
+  <ion-navbar hideBackButton="true">
+    <ion-buttons left>
+      <button (click)="goToHome()" ion-button icon-left clear small><ion-icon name="ios-arrow-back-outline"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>Add Notes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+	<ion-card padding>
+		<ion-item>
+			<input #noteTitle type="text" name="note" placeholder="Title">
+	  </ion-item>
+
+	  <hr>
+	  
+	  <ion-item>
+	  	<textarea #note placeholder="Note"></textarea>
+	  </ion-item>
+
+	  <hr>
+	  
+	  <ion-item>
+		  <button color="dark" ion-button full (click)="addNote(noteTitle.value,note.value)">Go!</button>	
+	  </ion-item>
+
+	</ion-card>
+</ion-content>

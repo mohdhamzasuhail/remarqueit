@@ -1,0 +1,143 @@
+<ion-header no-border>
+
+  <ion-toolbar> 
+
+  	<ion-buttons left>
+      <button ion-button icon-only (click)="goToHome()"><ion-icon name="ios-arrow-back-outline"></ion-icon></button>
+    </ion-buttons>
+
+    <ion-title *ngIf="!this.fire.auth.currentUser">
+    	<div *ngIf="showLoginBtn">Login</div>
+    	<div *ngIf="showRegisterBtn">Register</div>
+    </ion-title>
+    
+    <ion-buttons end *ngIf="this.fire.auth.currentUser">
+      <button ion-button icon-only (click)="logout()"><ion-icon name="md-log-out"></ion-icon></button>
+    </ion-buttons>
+  
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+	
+	<div *ngIf="this.fire.auth.currentUser">
+		<br>
+		<ion-row>
+			<ion-col col-12>
+				<span *ngIf="userInfo.userGender == 'Male'">
+					<img src="../../assets/imgs/avatar-male.png" style="margin-left:30%; border-radius: 50%;width: 40%; box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);border: 4px solid #fff;"><br>
+				</span>
+
+				<span *ngIf="userInfo.userGender == 'Female'">
+					<img src="../../assets/imgs/avatar-female.png" style="margin-left:30%; border-radius: 50%;width: 40%; box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);border: 4px solid #fff;"><br>
+				</span>
+
+				<h1 style="text-align: center;color: #FFF;text-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">{{userInfo.userName}}</h1> 
+			</ion-col>
+		</ion-row>
+		
+		<ion-card padding>
+			<ion-row>
+				<ion-col col-12>
+					<ion-row>
+						<ion-col col-3>
+							<h2><ion-icon name="md-mail"></ion-icon></h2>
+						</ion-col>
+						<ion-col col-9>
+							<h2>{{userInfo.userEmail}}</h2>
+						</ion-col>
+					</ion-row>
+					
+					<ion-row>
+						<ion-col col-3>
+							<h2><ion-icon name="md-call"></ion-icon></h2>
+						</ion-col>
+						<ion-col col-9>
+							<h2>{{userInfo.userNumber}}</h2>
+						</ion-col>
+					</ion-row>
+
+				</ion-col>
+			</ion-row>
+		</ion-card>	
+
+	</div>
+
+	<div *ngIf="!this.fire.auth.currentUser">
+		
+		<ion-row padding>
+			<ion-col col-6 no-padding (tap)="showLogin()">
+				<button ion-button full color="dark" style="box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">Login</button>
+			</ion-col>
+
+			<ion-col col-6 no-padding (tap)="showRegister()">
+				<button ion-button full color="light" style="box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">Register</button>
+			</ion-col>
+		</ion-row>
+
+		<ion-card padding *ngIf="showLoginBtn">
+			<ion-row>
+				<ion-col col-12>
+					
+					<h1 style="color:#F44336; text-align: center;"><b><i>Login</i></b></h1>
+
+					<ion-item>
+						<input type="email" #loginEmail placeholder="Email">
+					</ion-item>
+
+					<ion-item>
+						<input type="password" #loginPassword placeholder="Password">
+					</ion-item>
+
+					<ion-item>
+						<button ion-button full round color="custom" (tap)="login(loginEmail.value,loginPassword.value)" >GO!</button>
+					</ion-item>
+
+				</ion-col>
+			</ion-row>
+		</ion-card>
+
+		<ion-card padding *ngIf="showRegisterBtn">
+			<ion-row>
+				<ion-col col-12>
+					
+					<h1 style="color:#F44336; text-align: center;"><b><i>Register</i></b></h1>
+					
+					<ion-item>
+						<input type="text" #userName placeholder="Name">
+					</ion-item>
+
+					<ion-item>
+						<input type="number" #userNumber placeholder="Mobile Number">
+					</ion-item>
+
+					<ion-item>
+						<input type="email" #userEmail placeholder="Email">
+					</ion-item>
+
+					<ion-item>
+						<input type="password" #userPassword placeholder="Password">
+					</ion-item>
+
+					<ion-list radio-group>
+						<ion-item>
+							<ion-label>Female</ion-label>
+							<ion-radio (ionSelect)="gender(1)"></ion-radio>
+						</ion-item>
+						<ion-item>
+							<ion-label>Male</ion-label>
+							<ion-radio (ionSelect)="gender(2)"></ion-radio>
+						</ion-item>
+					</ion-list>
+
+					<ion-item>
+						<button ion-button full round color="custom" (tap)="register(userName.value,userNumber.value,userEmail.value,userPassword.value)">GO!</button>
+					</ion-item>
+
+				</ion-col>
+			</ion-row>
+		</ion-card>
+	</div>
+
+</ion-content>
